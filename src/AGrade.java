@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 public class AGrade extends EntityActive{
-
+ 
 
     private static final Random rand = new Random();
 
