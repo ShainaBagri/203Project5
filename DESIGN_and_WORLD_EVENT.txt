@@ -1,0 +1,44 @@
+Virtual World Project 5
+CSC 203, Winter 2020
+Prof. Humer
+Created By: Shaina Bagri and Parker Landsman
+
+
+Main Character must be movable with Courser keys:
+-A person / Cal Poly Student moves up, down, left, right across the screen
+
+Least 3 different kind of entities where one kind is moving using a "new" pathing algorithm:
+-A's (stationary object - similar to fish, only left-side)
+-F's (hailing down, like a stream in the center of the world, in the middle)
+-Person (movable character)
+-Grade Book (stationary spot - similar to Atlantis, on the right-side, one on top, one on bottom )
+-Sickness (temperature icon, pathing strategy to find the person DIY)
+
+ON MOUSE CLICK :
+ - World Changing Event: Visualization
+    - poof of warning signs of 8 blocks around where the mouse clicked
+    - that spot now can't be entered (treated as an obstacle)
+
+ - World Changing Event: Effect
+    -F's change to a different color and fall faster in the column closest to where the user clicked
+
+ - World Changing Event: New Entity
+    - Creates sickness that is chasing you
+
+How to trigger the event:
+ - by mouse click
+
+What should happen when the event is triggered"
+ - sickness appears
+
+What the affected entities should do:
+ - The affected entities should move faster and change color
+
+What the new entity is and how it should behave:
+ - The new entity is a sickness blob that chases the person around the screen
+
+What each partner was responsible for completing:
+ - Both worked equally on everything
+ - Both created and added ideas
+ - Both documented the code
+

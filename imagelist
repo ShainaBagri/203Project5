@@ -1,0 +1,11 @@
+gradeBook images/gradeBook.bmp
+star images/star.png
+prof images/prof.png
+tanBlock images/tanBlock.bmp 255 255 255 0
+background_default images/none.bmp
+aGrade images/aGrade.png 255 255 255 0
+fGrade images/fGrade.png 255 255 255 0
+sick images/sick2.png 255 255 255 0
+player images/student.png 255 255 255 0
+obstacle images/warning.png 255 255 255 0
+black images/black.png
