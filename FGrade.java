@@ -24,9 +24,11 @@ public class FGrade extends EntityActive{
         Point newPos = new Point(this.getPosition().x, newY);
         if (target.isPresent() && newPos.equals(target.get().getPosition()))
         {
+
+            world.setEnd();
+
             world.removeEntity(target.get());
             scheduler.unscheduleAllEvents( target.get());
-            //endgame
         }
         world.moveEntity(this, newPos);
 

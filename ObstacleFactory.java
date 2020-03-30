@@ -11,7 +11,7 @@ public abstract class ObstacleFactory extends EntityActive{
 
     public ObstacleFactory(String id, Point position, List<PImage> images)
     {
-        super(id, position, 1, images);
+        super(id, position, 10, images);
     }
 
     public abstract void executeActivity( WorldModel world, ImageStore imageStore, EventScheduler scheduler);

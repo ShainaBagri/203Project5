@@ -11,7 +11,9 @@ public abstract class EntityMove extends EntityAnimated{
     {
             super(id, position, actionPeriod, animationPeriod, images);
             //this.strategy = new SingleStepPathing();
+            //this.strategy = new AStarPathingStrategy();
             this.strategy = new BestFirstPathing();
+            //this.strategy = new SingleStepPathing();
 
     }
 

@@ -55,10 +55,10 @@ public class Sickness extends EntityMove{
 
     public boolean moveTo( WorldModel world, Entity target, EventScheduler scheduler)
     {
-        //Timer timer = new Timer();
 
         if (this.getPosition().adjacent(target.getPosition()))
         {
+            world.setEnd();
             world.removeEntity( target);
             scheduler.unscheduleAllEvents( target);
 

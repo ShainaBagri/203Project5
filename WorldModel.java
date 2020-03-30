@@ -24,6 +24,7 @@ final class WorldModel
    private Background background[][];
    private Entity occupancy[][];
    private Set<Entity> entities;
+   private boolean end;
 
    private static final int FISH_REACH = 1;
 
@@ -34,12 +35,17 @@ final class WorldModel
       this.background = new Background[numRows][numCols];
       this.occupancy = new Entity[numRows][numCols];
       this.entities = new HashSet<>();
+      this.end = false;
 
       for (int row = 0; row < numRows; row++)
       {
          Arrays.fill(this.background[row], defaultBackground);
       }
    }
+
+   public boolean getEnd() { return end;}
+
+   public void setEnd() { end = true;}
 
    public Set<Entity> getEntities() {
       return entities;
@@ -178,8 +184,8 @@ final class WorldModel
             }
          }
          else if(ent!=null && (ent.get().getClass() == FGrade.class || ent.get().getClass() == Sickness.class)) {
-            //Game Over
             this.removeEntity(entity);
+            end = true;
          }
       }
    }

@@ -31,11 +31,9 @@ public final class VirtualWorld
    public static final String DEFAULT_IMAGE_NAME = "background_default";
    public static final int DEFAULT_IMAGE_COLOR = 0x808080;
 
-   public static final String BLACK_IMAGE_NAME = "black";
-   public static final int BLACK_IMAGE_COLOR = 0xFFFFFF;
-
    private String LOAD_FILE_NAME0 = "world0.sav";
    private String LOAD_FILE_NAME1 = "world1.sav";
+   private String LOAD_FILE_NAME2 = "world2.sav";
 
    public static final String FAST_FLAG = "-fast";
    public static final String FASTER_FLAG = "-faster";
@@ -45,10 +43,6 @@ public final class VirtualWorld
    public static final double FASTEST_SCALE = 0.10;
    
    private static final String OBSTACLE_KEY = "obstacle";
-   private static final int OBSTACLE_NUM_PROPERTIES = 4;
-   private static final int OBSTACLE_ID = 1;
-   private static final int OBSTACLE_COL = 2;
-   private static final int OBSTACLE_ROW = 3;
 
    public static double timeScale = 1.0;
 
@@ -122,10 +116,30 @@ public final class VirtualWorld
       this.player = new Player("PLAYER", new Point(0,6), 0, 0, imageStore.getImageList("player"));
       world.tryAddEntity(player);
       world.tryAddEntity(obstacle);
+      obstacle.scheduleActions(scheduler, world, imageStore);
+   }
+
+   public void end()
+   {
+      this.imageStore = new ImageStore(
+              createImageColored(TILE_WIDTH, TILE_HEIGHT, DEFAULT_IMAGE_COLOR));
+      this.world = new WorldModel(WORLD_ROWS, WORLD_COLS,
+              createDefaultBackground(imageStore));
+      this.view = new WorldView(VIEW_ROWS, VIEW_COLS, this, world,
+              TILE_WIDTH, TILE_HEIGHT);
+      this.scheduler = new EventScheduler(timeScale);
+
+      loadImages(IMAGE_LIST_FILE_NAME, imageStore, this);
+      loadWorld(world, LOAD_FILE_NAME2, imageStore);
+
+      next_time = System.currentTimeMillis() + TIMER_ACTION_PERIOD;
    }
 
    public void draw()
    {
+      if(world.getEnd()){
+         end();
+      }
       long time = System.currentTimeMillis();
       if (time >= next_time)
       {

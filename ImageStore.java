@@ -48,12 +48,6 @@ final class ImageStore
    private static final int Profesor_ROW = 3;
    private static final int Profesor_ACTION_PERIOD = 4;
 
-   private static final String Sickness_KEY = "sick";
-   private static final String Sickness_ID_SUFFIX = " -- Sickness";
-   private static final int Sickness_PERIOD_SCALE = 4;
-   private static final int Sickness_ANIMATION_MIN = 50;
-   private static final int Sickness_ANIMATION_MAX = 150;
-
    private static final int COLOR_MASK = 0xffffff;
    private static final int KEYED_RED_IDX = 2;
    private static final int KEYED_GREEN_IDX = 3;
